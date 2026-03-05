@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты — Подготовка к ЕГЭ по информатике</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <style>
+        /* Дополнительные стили для страницы контактов */
+        #contacts {
+            margin-top: 30px;
+            margin-left: 240px;
+            width: 1000px;
+            max-width: calc(100% - 240px);
+            scroll-margin-top: 30px;
+            padding: 20px 0 40px 0;
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+        
+        .contacts-content {
+            flex: 1;
+        }
+        
+        .contacts-content h2 {
+            font-family: 'Montserrat', 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 16px;
+        }
+        
+        .contacts-content h3 {
+            margin: 0 0 30px 0;
+            font-size: 42px;
+            font-weight: 700;
+            color: #1e293b;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            text-shadow: 0 2px 4px rgba(255,255,255,0.5);
+        }
+        
+        .contact-items {
+            margin: 30px 0;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            padding: 12px 20px;
+            border-radius: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            max-width: 350px;
+            transition: transform 0.2s ease;
+        }
+        
+        .contact-item:hover {
+            transform: translateX(5px);
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .contact-icon {
+            width: 44px;
+            height: 44px;
+            background: #1e293b;
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        
+        .contact-item p {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 500;
+            color: #1e293b;
+        }
+        
+        .contacts-photo {
+            flex: 1;
+            max-width: 500px;
+            position: relative;
+            left: -90px;
+            top: 160px;
+        }
+        
+        .contacts-photo .photo {
+            width: 100%;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.3);
+        }
+        
+        #booking {
+            margin-top: 0;
+            margin-left: 240px;
+            width: 1000px;
+            max-width: calc(100% - 240px);
+            scroll-margin-top: 30px;
+            padding: 60px 0;
+            display: flex;
+            justify-content: center;
+        }
+        
+        #booking .text {
+            text-align: center;
+            max-width: 700px;
+            width: 100%;
+        }
+        
+        #booking .text h2 {
+            font-family: 'Montserrat', 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 16px;
+        }
+        
+        #booking .text h3 {
+            margin: 0 0 40px 0;
+            font-size: 48px;
+            font-weight: 700;
+            color: #1e293b;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+        }
+        
+        form {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 40px;
+            padding: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            width: 100%;
+            box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.2);
+            margin: 0 auto;
+        }
+        
+        form p {
+            margin: 0 0 25px 0;
+        }
+        
+        form label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 15px;
+            text-align: left;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 16px 24px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 60px;
+            font-size: 16px;
+            outline: none;
+            background: white;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+        
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        select:focus {
+            border-color: #1e293b;
+            box-shadow: 0 0 0 4px rgba(30, 41, 59, 0.1);
+        }
+        
+        input[type="radio"] {
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+            accent-color: #1e293b;
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 40px;
+            margin: 25px 0 15px 0;
+            justify-content: center;
+        }
+        
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            font-weight: 500;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        input[type="submit"] {
+            background: #1e293b;
+            color: white;
+            border: none;
+            padding: 18px 48px;
+            border-radius: 60px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            width: 100%;
+            margin-top: 20px;
+            letter-spacing: 0.5px;
+        }
+        
+        input[type="submit"]:hover {
+            background: #0f172a;
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .error-message {
+            color: #dc2626;
+            font-size: 14px;
+            margin-top: 8px;
+            margin-left: 20px;
+            display: none;
+            text-align: left;
+        }
+        
+        .error-message.show {
+            display: block;
+        }
+        
+        input.error, select.error {
+            border-color: #dc2626;
+            background-color: #fef2f2;
+        }
+        
+        @media (max-width: 1024px) {
+            #contacts, #booking {
+                margin: 20px auto;
+                width: 90%;
+                max-width: 90%;
+            }
+            
+            #contacts {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .contacts-content h3 {
+                font-size: 36px;
+            }
+            
+            .contact-item {
+                max-width: 100%;
+            }
+            
+            .contacts-photo {
+                max-width: 100%;
+                left: 0;
+                top: 0;
+            }
+            
+            #booking .text h3 {
+                font-size: 40px;
+            }
+            
+            form {
+                padding: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .contacts-content h3 {
+                font-size: 32px;
+            }
+            
+            #booking .text h3 {
+                font-size: 36px;
+            }
+            
+            .radio-group {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+                padding-left: 20px;
+            }
+            
+            .contact-item {
+                padding: 10px 16px;
+            }
+            
+            .contact-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+            
+            .contact-item p {
+                font-size: 14px;
+            }
+            
+            form {
+                padding: 30px;
+            }
+            
+            input[type="submit"] {
+                padding: 16px 40px;
+                font-size: 16px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            form {
+                padding: 25px;
+            }
+            
+            .contacts-content h3 {
+                font-size: 28px;
+            }
+            
+            #booking .text h3 {
+                font-size: 32px;
+            }
+            
+            input[type="text"],
+            input[type="email"],
+            select {
+                padding: 14px 20px;
+                font-size: 15px;
+            }
+            
+            .radio-group {
+                gap: 12px;
+                padding-left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>    
+    <div class="sidebar">
+        <ul>
+            <li><a href="lk_prew.html">👤 Личный кабинет</a></li>
+            <li><a href="main.html">🏠 Главная</a></li>
+            <li><a href="info.html">ℹ️ Дополнительно</a></li>
+            <li><a href="contacts.html" class="active">📞 Контакты</a></li>
+        </ul>
+    </div>
+    
+    <div class="head-block">
+        <div class="logo" id="logoContainer">
+            <img src="logo.png" alt="Логотип" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'40\' height=\'40\' viewBox=\'0 0 24 24\'><circle cx=\'12\' cy=\'12\' r=\'12\' fill=\'%231e293b\'/><text x=\'6\' y=\'18\' font-family=\'Inter\' font-size=\'14\' fill=\'white\'>ЕГЭ</text></svg>'">
+        </div>
+        <h1>Контакты и обратная связь</h1>
+    </div>
+    
+    <div id="contacts">
+        <div class="contacts-content">
+            <h2>КОНТАКТЫ</h2>
+            <h3>Свяжитесь с нами удобным способом</h3>
+            
+            <div class="contact-items">
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <p>+7 (999) 123-45-67</p>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <p>ege@mail.ru</p>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <p>г. Тула, ул. Фрунзе, 18</p>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">⏰</span>
+                    <p>Пн-Пт с 10:00 до 20:00</p>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">🌎</span>
+                    <p>vk.com/mishhhhhkabocharov</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contacts-photo">
+            <div class="photo">
+                <img src="map.png" alt="Карта" onerror="this.src='data:image/svg+xml;utf8,<svg width=\'400\' height=\'300\' xmlns=\'http://www.w3.org/2000/svg\'><rect width=\'400\' height=\'300\' fill=\'%23f1f5f9\'/><text x=\'50%\' y=\'50%\' font-family=\'Inter\' font-size=\'16\' fill=\'%23334155\' text-anchor=\'middle\'>ул. Фрунзе, 18</text></svg>'">
+            </div>
+        </div>
+    </div>
+    
+    <div id="booking">
+        <div class="text">
+            <h2>ЗАПИСЬ НА ЗАНЯТИЕ</h2>
+            <h3>Пробное занятие — бесплатно</h3>
+            
+            <form id="bookingForm" action="#" method="post" onsubmit="return validateForm()">
+                <p>
+                    <label>Ваше имя</label>
+                    <input type="text" id="bookingName" placeholder="Михаил">
+                    <div class="error-message" id="bookingNameError">Пожалуйста, введите имя</div>
+                </p>
+                
+                <p>
+                    <label>Номер телефона</label>
+                    <input type="text" id="phone" placeholder="+7 (999) 123-45-67">
+                    <div class="error-message" id="phoneError">Введите корректный номер телефона</div>
+                </p>
+                
+                <p>
+                    <label>Дата и время занятия</label>
+                    <select name="city" id="city">
+                        <option value="1" selected>1 марта, 13:40</option>
+                        <option value="2">1 марта, 15:00</option>
+                        <option value="3">2 марта, 13:40</option>
+                        <option value="4">3 марта, 15:00</option>
+                    </select>
+                </p>
+                
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="gender" value="male"> 👨 Мужской
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="female"> 👩 Женский
+                    </label>
+                </div>
+                <div class="error-message" id="genderError">Пожалуйста, выберите пол</div>
+                
+                <p>
+                    <input type="submit" value="Записаться бесплатно">
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            let isValid = true;
+            
+            // Имя
+            const nameInput = document.getElementById('bookingName');
+            const nameError = document.getElementById('bookingNameError');
+            if (nameInput.value.trim() === '') {
+                nameInput.classList.add('error');
+                nameError.classList.add('show');
+                isValid = false;
+            } else {
+                nameInput.classList.remove('error');
+                nameError.classList.remove('show');
+            }
+            
+            // Телефон
+            const phoneInput = document.getElementById('phone');
+            const phoneError = document.getElementById('phoneError');
+            const phoneRegex = /^\+7\s?\(?\d{3}\)?\s?\d{3}\s?-?\d{2}\s?-?\d{2}$/;
+            if (phoneInput.value.trim() === '' || !phoneRegex.test(phoneInput.value.trim())) {
+                phoneInput.classList.add('error');
+                phoneError.classList.add('show');
+                isValid = false;
+            } else {
+                phoneInput.classList.remove('error');
+                phoneError.classList.remove('show');
+            }
+            
+            // Пол
+            const genderMale = document.querySelector('input[name="gender"][value="male"]');
+            const genderFemale = document.querySelector('input[name="gender"][value="female"]');
+            const genderError = document.getElementById('genderError');
+            if (!genderMale.checked && !genderFemale.checked) {
+                genderError.classList.add('show');
+                isValid = false;
+            } else {
+                genderError.classList.remove('show');
+            }
+            
+            if (isValid) {
+                alert('✅ Вы успешно записаны на пробное занятие! Мы свяжемся с вами для подтверждения.');
+                // Здесь можно добавить реальную отправку формы
+                // document.getElementById('bookingForm').submit();
+            }
+            
+            return false; // Отключаем реальную отправку для демонстрации
+        }
+    </script>
+</body>
+</html>

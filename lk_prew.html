@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход в личный кабинет — Подготовка к ЕГЭ по информатике</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <style>
+        /* Стили для страницы входа */
+        #login-section {
+            margin-top: 20px;
+            margin-left: 240px;
+            width: 1000px;
+            max-width: calc(100% - 240px);
+            scroll-margin-top: 30px;
+            padding: 40px 0;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .login-container {
+            max-width: 550px;
+            width: 100%;
+        }
+        
+        .login-header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .login-header h3 {
+            margin: 0;
+            font-size: 30px;
+            font-weight: 600;
+            color: #1e293b;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(255,255,255,0.5);
+        }
+        
+        .login-card {
+            width: 100%;
+        }
+        
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .form-group label {
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 16px;
+            margin-left: 8px;
+        }
+        
+        .form-group input {
+            padding: 22px 28px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 60px;
+            font-size: 18px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.9);
+            transition: all 0.2s ease;
+            font-family: inherit;
+            width: 100%;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+        
+        .form-group input:focus {
+            border-color: #1e293b;
+            box-shadow: 0 0 0 4px rgba(30, 41, 59, 0.1);
+            background: white;
+        }
+        
+        .form-group input::placeholder {
+            color: #94a3b8;
+            font-size: 16px;
+        }
+        
+        .login-btn {
+            background: #1e293b;
+            color: white;
+            border: none;
+            padding: 22px 32px;
+            border-radius: 60px;
+            font-size: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            width: 100%;
+            margin-top: 20px;
+            letter-spacing: 0.5px;
+        }
+        
+        .login-btn:hover {
+            background: #0f172a;
+            transform: translateY(-2px);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .error-message {
+            color: #dc2626;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 15px;
+            display: none;
+            background: rgba(254, 202, 202, 0.5);
+            padding: 15px;
+            border-radius: 60px;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(220, 38, 38, 0.2);
+        }
+        
+        .success-message {
+            color: #059669;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 15px;
+            display: none;
+            background: rgba(167, 243, 208, 0.5);
+            padding: 15px;
+            border-radius: 60px;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(5, 150, 105, 0.2);
+        }
+        
+        @media (max-width: 1024px) {
+            #login-section {
+                margin: 20px auto;
+                width: 90%;
+                max-width: 90%;
+            }
+            
+            .login-header h3 {
+                font-size: 22px;
+            }
+            
+            .form-group input {
+                padding: 20px 24px;
+                font-size: 17px;
+            }
+            
+            .login-btn {
+                padding: 20px 28px;
+                font-size: 18px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .login-header h3 {
+                font-size: 20px;
+            }
+            
+            .form-group input {
+                padding: 18px 22px;
+                font-size: 16px;
+            }
+            
+            .login-btn {
+                padding: 18px 24px;
+                font-size: 17px;
+            }
+            
+            .form-group label {
+                font-size: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .login-header h3 {
+                font-size: 18px;
+            }
+            
+            .form-group input {
+                padding: 16px 20px;
+            }
+            
+            .login-btn {
+                padding: 16px 22px;
+            }
+        }
+    </style>
+</head>
+<body>    
+    <div class="sidebar">
+        <ul>
+            <li><a href="lk_prew.html" class="active">👤 Вход в кабинет</a></li>
+            <li><a href="main.html">🏠 Главная</a></li>
+            <li><a href="info.html">ℹ️ Дополнительно</a></li>
+            <li><a href="contacts.html">📞 Контакты</a></li>
+        </ul>
+    </div>
+    
+    <div class="head-block">
+        <div class="logo" id="logoContainer">
+            <img src="logo.png" alt="Логотип" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'40\' height=\'40\' viewBox=\'0 0 24 24\'><circle cx=\'12\' cy=\'12\' r=\'12\' fill=\'%231e293b\'/><text x=\'6\' y=\'18\' font-family=\'Inter\' font-size=\'14\' fill=\'white\'>ЕГЭ</text></svg>'">
+        </div>
+        <h1>Личный кабинет</h1>
+    </div>
+    
+    <div id="login-section">
+        <div class="login-container">
+            <div class="login-header">
+                <h3>Вход в аккаунт</h3>
+            </div>
+            
+            <div class="login-card">
+                <div class="login-form">
+                    <div class="form-group">
+                        <label for="username">Имя пользователя</label>
+                        <input type="text" id="username" placeholder="Михаил или Александр">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Пароль</label>
+                        <input type="password" id="password" placeholder="••••">
+                    </div>
+                    
+                    <button class="login-btn" onclick="login()">Войти в кабинет</button>
+                    
+                    <div class="error-message" id="errorMessage">Неверный логин или пароль. Попробуйте снова.</div>
+                    <div class="success-message" id="successMessage">Успешный вход! Перенаправление...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function login() {
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const errorMessage = document.getElementById('errorMessage');
+            const successMessage = document.getElementById('successMessage');
+            
+            // Скрываем предыдущие сообщения
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'none';
+            
+            // Валидация
+            if (username === '') {
+                errorMessage.textContent = 'Пожалуйста, введите имя пользователя';
+                errorMessage.style.display = 'block';
+                return;
+            }
+            
+            if (password === '') {
+                errorMessage.textContent = 'Пожалуйста, введите пароль';
+                errorMessage.style.display = 'block';
+                return;
+            }
+            
+            // Проверка учетных данных
+            if (password === '1111' && username === 'Михаил') {
+                // Ученик
+                successMessage.textContent = '✅ Успешный вход! Перенаправление в кабинет ученика...';
+                successMessage.style.display = 'block';
+                
+                localStorage.setItem('currentUser', JSON.stringify({
+                    name: username,
+                    role: 'student'
+                }));
+                
+                setTimeout(() => {
+                    window.location.href = 'lk.html';
+                }, 1500);
+                
+            } else if (password === '0000' && username === 'Александр') {
+                // Преподаватель
+                successMessage.textContent = '✅ Успешный вход! Перенаправление в кабинет преподавателя...';
+                successMessage.style.display = 'block';
+                
+                localStorage.setItem('currentUser', JSON.stringify({
+                    name: username,
+                    role: 'teacher'
+                }));
+               
+                setTimeout(() => {
+                    window.location.href = 'lk_prepod.html';
+                }, 1500);
+                
+            } else {
+                errorMessage.style.display = 'block';
+            }
+        }
+        
+        // Добавляем обработчик нажатия Enter
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                login();
+            }
+        });
+    </script>
+</body>
+</html>

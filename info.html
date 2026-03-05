@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дополнительно — Подготовка к ЕГЭ по информатике</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <style>
+        /* Дополнительные стили для страницы информации */
+        #about-course {
+            margin-top: 30px;
+            margin-left: 240px;
+            width: 1000px;
+            max-width: calc(100% - 240px);
+            scroll-margin-top: 30px;
+            padding: 20px 0 40px 0;
+        }
+        
+        #about-course .text h2 {
+            font-family: 'Montserrat', 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 16px;
+        }
+        
+        #about-course .text h3 {
+            margin: 0 0 20px 0;
+            font-size: 42px;
+            font-weight: 700;
+            color: #1e293b;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            text-shadow: 0 2px 4px rgba(255,255,255,0.5);
+        }
+        
+        #about-course .text p {
+            margin: 0 0 30px 0;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #334155;
+            max-width: 700px;
+        }
+        
+        /* Сетка карточек */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin: 40px 0;
+        }
+        
+        .info-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 32px;
+            padding: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .info-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .info-card h3 {
+            font-size: 24px !important;
+            font-weight: 700 !important;
+            color: #1e293b !important;
+            margin-bottom: 15px !important;
+            letter-spacing: -0.5px !important;
+            text-shadow: none !important;
+        }
+        
+        .info-card p {
+            font-size: 15px !important;
+            color: #475569 !important;
+            line-height: 1.6 !important;
+            margin: 0 !important;
+        }
+        
+        /* Секция преимуществ */
+        .features-section {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 40px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            margin: 40px 0;
+        }
+        
+        .features-section h3 {
+            font-size: 32px !important;
+            margin-bottom: 30px !important;
+        }
+        
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+            color: #1e293b;
+        }
+        
+        .feature-item span {
+            font-size: 24px;
+        }
+        
+        /* Секция отзывов */
+        .reviews-section {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 40px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            margin: 40px 0;
+        }
+        
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 30px;
+        }
+        
+        .review-card {
+            background: white;
+            border-radius: 28px;
+            padding: 28px;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .review-author {
+            font-weight: 700;
+            font-size: 18px;
+            color: #1e293b;
+            margin-bottom: 12px;
+            display: block;
+        }
+        
+        .review-text {
+            font-size: 15px;
+            color: #475569;
+            line-height: 1.6;
+            margin: 0;
+            font-style: italic;
+        }
+        
+        .review-rating {
+            color: #fbbf24;
+            font-size: 16px;
+            margin-top: 15px;
+            letter-spacing: 2px;
+        }
+        
+        /* Секция цен - два блока */
+        .prices-section {
+            margin: 40px 0;
+        }
+        
+        .prices-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .price-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 40px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .price-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 40px 60px -20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .price-card.popular {
+            background: white;
+            border: 2px solid #1e293b;
+            position: relative;
+        }
+        
+        .price-card.popular::before {
+            content: "🔥 Рекомендуем";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1e293b;
+            color: white;
+            padding: 4px 20px;
+            border-radius: 40px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+        
+        .price-card h4 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+        
+        .price-value {
+            font-size: 48px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+        
+        .price-old {
+            font-size: 24px;
+            color: #94a3b8;
+            text-decoration: line-through;
+            margin-right: 10px;
+        }
+        
+        .price-description {
+            font-size: 16px;
+            color: #64748b;
+            margin-bottom: 25px;
+        }
+        
+        .price-features {
+            list-style: none;
+            padding: 0;
+            margin: 25px 0;
+            text-align: left;
+        }
+        
+        .price-features li {
+            padding: 8px 0;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+        }
+        
+        .price-features li::before {
+            content: "✓";
+            color: #1e293b;
+            font-weight: 700;
+        }
+        
+        .price-btn {
+            display: inline-block;
+            background: #1e293b;
+            color: white;
+            text-decoration: none;
+            padding: 14px 32px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .price-btn:hover {
+            background: #0f172a;
+            transform: translateY(-2px);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .price-btn.outline {
+            background: transparent;
+            color: #1e293b;
+            border: 2px solid #1e293b;
+        }
+        
+        .price-btn.outline:hover {
+            background: #1e293b;
+            color: white;
+        }
+        
+        @media (max-width: 1024px) {
+            #about-course {
+                margin: 20px auto;
+                width: 90%;
+                max-width: 90%;
+            }
+            
+            #about-course .text h3 {
+                font-size: 36px;
+            }
+            
+            .info-grid,
+            .features-list,
+            .reviews-grid,
+            .prices-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .price-card {
+                padding: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            #about-course .text h3 {
+                font-size: 32px;
+            }
+            
+            .info-card h3 {
+                font-size: 22px !important;
+            }
+            
+            .features-section,
+            .reviews-section {
+                padding: 30px;
+            }
+            
+            .price-value {
+                font-size: 40px;
+            }
+            
+            .price-card h4 {
+                font-size: 24px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            #about-course .text h3 {
+                font-size: 28px;
+            }
+            
+            .info-card {
+                padding: 24px;
+            }
+            
+            .features-section,
+            .reviews-section {
+                padding: 24px;
+            }
+            
+            .price-card {
+                padding: 24px;
+            }
+            
+            .price-value {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>    
+    <div class="sidebar">
+        <ul>
+            <li><a href="lk_prew.html">👤 Личный кабинет</a></li>
+            <li><a href="main.html">🏠 Главная</a></li>
+            <li><a href="info.html" class="active">ℹ️ Дополнительно</a></li>
+            <li><a href="contacts.html">📞 Контакты</a></li>
+        </ul>
+    </div>
+    
+    <div class="head-block">
+        <div class="logo" id="logoContainer">
+            <img src="logo.png" alt="Логотип" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'40\' height=\'40\' viewBox=\'0 0 24 24\'><circle cx=\'12\' cy=\'12\' r=\'12\' fill=\'%231e293b\'/><text x=\'6\' y=\'18\' font-family=\'Inter\' font-size=\'14\' fill=\'white\'>ЕГЭ</text></svg>'">
+        </div>
+        <h1>Дополнительная информация</h1>
+    </div>
+    
+    <div id="about-course">
+        <div class="text">
+            <h2>О КУРСЕ</h2>
+            <h3>Подготовка к ЕГЭ по информатике</h3>
+            <p>Наш курс разработан специально для учеников 10-11 классов. Мы используем современные методики обучения и индивидуальный подход к каждому ученику.</p>
+            
+            <!-- Карточки с информацией -->
+            <div class="info-grid">
+                <div class="info-card">
+                    <span class="info-icon">📊</span>
+                    <h3>Структура курса</h3>
+                    <p>10 занятий, каждое занятие — 1 академический час. Изучение теории и решение задач с индивидуальным подходом</p>
+                </div>
+                
+                <div class="info-card">
+                    <span class="info-icon">💻</span>
+                    <h3>Языки программирования</h3>
+                    <p>Python, C++, Pascal — на выбор. Разбор всех алгоритмов и структур данных</p>
+                </div>
+                
+                <div class="info-card">
+                    <span class="info-icon">📝</span>
+                    <h3>Домашние задания</h3>
+                    <p>После каждого занятия — практика с проверкой и разбором ошибок</p>
+                </div>
+                
+                <div class="info-card">
+                    <span class="info-icon">🎯</span>
+                    <h3>Результаты</h3>
+                    <p>Средний балл наших учеников — 85+. Каждый второй сдает на 90+ баллов</p>
+                </div>
+            </div>
+            
+            <!-- Преимущества -->
+            <div class="features-section">
+                <h3>Почему выбирают нас?</h3>
+                <div class="features-list">
+                    <div class="feature-item"><span>✔️</span> Опытный преподаватель с реальным опытом в IT</div>
+                    <div class="feature-item"><span>✔️</span> Индивидуальный подход под ваш уровень</div>
+                    <div class="feature-item"><span>✔️</span> Современная методика обучения</div>
+                    <div class="feature-item"><span>✔️</span> Разбор всех типов заданий</div>
+                </div>
+            </div>
+            
+            <!-- Цены - два блока -->
+            <div class="prices-section">
+                <h3>Стоимость занятий</h3>
+                <div class="prices-grid">
+                    <!-- Первый блок: 1 занятие -->
+                    <div class="price-card">
+                        <h4>1 занятие</h4>
+                        <div class="price-value">1000 ₽</div>
+                        <p class="price-description">за 1 академический час</p>
+                        <ul class="price-features">
+                            <li>Индивидуальный подход</li>
+                            <li>Разбор конкретных тем</li>
+                            <li>Домашнее задание</li>
+                            <li>Обратная связь</li>
+                        </ul>
+                        <a href="contacts.html" class="price-btn outline">Выбрать</a>
+                    </div>
+                    
+                    <!-- Второй блок: Курс занятий (популярный) -->
+                    <div class="price-card popular">
+                        <h4>Курс занятий</h4>
+                        <div class="price-value">
+                            <span class="price-old">10000 ₽</span> 7500 ₽
+                        </div>
+                        <p class="price-description">за курс из 10 занятий</p>
+                        <ul class="price-features">
+                            <li>Экономия 2500 ₽</li>
+                            <li>Полная программа подготовки</li>
+                            <li>Все типы заданий ЕГЭ</li>
+                            <li>Приоритетная поддержка</li>
+                        </ul>
+                        <a href="contacts.html" class="price-btn">Выбрать курс</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Отзывы -->
+            <div class="reviews-section">
+                <h3>Отзывы наших учеников</h3>
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <span class="review-author">Анастасия</span>
+                        <p class="review-text">"Здорово! Подготовилась за полгода с нуля, сдала на 78 баллов"</p>
+                        <div class="review-rating">★★★★★</div>
+                    </div>
+                    
+                    <div class="review-card">
+                        <span class="review-author">Дмитрий</span>
+                        <p class="review-text">"Волшебно! Очень понятные объяснения, разобрали все сложные моменты"</p>
+                        <div class="review-rating">★★★★★</div>
+                    </div>
+                    
+                    <div class="review-card">
+                        <span class="review-author">Сергей</span>
+                        <p class="review-text">"Шикарно! Поступил в МГТУ им. Баумана, спасибо за подготовку"</p>
+                        <div class="review-rating">★★★★★</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
