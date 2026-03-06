@@ -368,6 +368,47 @@ html {
         padding: 20px 0;
     }
     
+    /* ===== ИСПРАВЛЕНИЯ ДЛЯ МОБИЛЬНОЙ ВЕРСИИ ===== */
+    /* Вертикальное расположение блока "О нас" */
+    #about {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    /* Блок с фото теперь сверху и корректно масштабируется */
+    .about-photo {
+        width: 100%;
+        max-width: 100%;
+        order: -1; /* Фото будет сверху */
+    }
+    
+    .about-photo .photo {
+        width: 100%;
+        border-radius: 20px;
+    }
+    
+    .photo img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+    
+    /* Текст центрируется */
+    .about-content {
+        text-align: center;
+        padding: 0 15px;
+    }
+    
+    .about-content p {
+        margin: 0 auto 30px auto;
+    }
+    
+    /* Новости в одну колонку */
+    .news-grid {
+        grid-template-columns: 1fr; /* Одна колонка */
+        gap: 20px;
+    }
+    
     /* Для страницы контактов */
     #contacts {
         flex-direction: column;
@@ -376,6 +417,11 @@ html {
     
     .contacts-content h3 {
         font-size: 32px;
+        text-align: center;
+    }
+    
+    .contacts-content p {
+        text-align: center;
     }
     
     .contact-item {
@@ -420,15 +466,18 @@ html {
     .login-btn, .price-btn, .btn, input[type="submit"] {
         padding: 16px 24px;
         font-size: 16px;
+        width: 100%; /* Кнопки на всю ширину */
     }
     
     /* Заголовки */
     .text h2, .contacts-content h2, #about-course .text h2 {
         font-size: 12px;
+        text-align: center;
     }
     
     .text h3, .contacts-content h3, #about-course .text h3, .login-header h3 {
         font-size: 28px;
+        text-align: center;
     }
     
     /* Радиокнопки */
@@ -462,6 +511,14 @@ html {
     .logo {
         width: 36px;
         height: 36px;
+    }
+    
+    .about-content h3 {
+        font-size: 32px; /* Уменьшаем заголовок */
+    }
+    
+    .about-content p {
+        font-size: 15px;
     }
     
     .text h3, .contacts-content h3, #about-course .text h3, .login-header h3 {
@@ -510,6 +567,14 @@ html {
         height: 36px;
         font-size: 16px;
     }
+    
+    .news-title {
+        font-size: 18px;
+    }
+    
+    .news-excerpt {
+        font-size: 14px;
+    }
 }
 
 /* Очень маленькие телефоны */
@@ -523,6 +588,10 @@ html {
         font-size: 14px;
     }
     
+    .about-content h3 {
+        font-size: 26px;
+    }
+    
     .text h3, .contacts-content h3, #about-course .text h3, .login-header h3 {
         font-size: 22px;
     }
@@ -531,6 +600,7 @@ html {
         font-size: 28px;
     }
 }
+
 /* ===== АНИМАЦИИ ===== */
 @keyframes fadeInUp {
     from {
@@ -734,7 +804,7 @@ form, .login-form, .login-card {
     animation-delay: 0.4s;
 }
 
-/* Адаптация для мобильных */
+/* Адаптация анимаций для мобильных */
 @media (max-width: 768px) {
     .info-card, .news-card, .price-card, .review-card, .contact-item {
         animation-duration: 0.4s;
